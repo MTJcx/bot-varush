@@ -136,10 +136,8 @@ public class Level extends Command {
         return Arrays.asList(BattleriteUtils.CHAMPIONS).contains(championName);
     }
 
-    private void calculateTableSpace(List<PlayerPOJO.Data> players) {
-        for (PlayerPOJO.Data p : players) {
-            String position = p.getPosition() != null ? p.getPosition() : String.valueOf(players.indexOf(p) + 1);
-            String name = p.getAttributes().getName();
+    private void calcVirtualLevel(List<PlayerPOJO.Data> player) {
+        for (PlayerPOJO.Data p : player) {
             int wins = p.getChampionWins(championName);
             int losses = p.getChampionLosses(championName);
             int totalWin = wins + losses;
